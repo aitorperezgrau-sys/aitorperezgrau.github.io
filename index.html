@@ -4,572 +4,338 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aitor Pérez Grau — Aerospace Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
-
   :root {
-    --bg: #f4f9fb; /* Soft, airy aerospace background */
-    --bg2: #e6f0f5;
-    --accent: #1A6B99; /* Primary Blue from resume */
-    --accent2: #50A3D1; /* Light Blue from resume */
-    --gold: #d49500; /* Darkened gold for contrast on light bg */
-    --text: #0f2438; /* Crisp navy blue for text */
-    --muted: #5a758a; /* Muted slate for secondary text */
-    --card: rgba(255,255,255,0.85);
-    --border: rgba(26,107,153,0.15);
+    --bg: #F7F6F3;
+    --text: #111111;
+    --border: rgba(0, 0, 0, 0.15);
+    --blue: #1A6B99;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+  
+  body { 
+    font-family: 'Geist', sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-  #particles { position:fixed; inset:0; z-index:0; pointer-events:none; }
+  h1, h2, h3, h4 { 
+    font-family: 'Instrument Serif', serif; 
+    font-weight: 400; 
+  }
 
+  .mono { 
+    font-family: 'Geist Mono', monospace; 
+    font-size: 0.85rem; 
+  }
+  
+  .mono-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blue-text { color: var(--blue); }
+  .github-link { color: var(--blue); text-decoration: none; }
+  .github-link:hover { text-decoration: underline; }
+
+  /* Layout Wrapper */
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    min-height: 100vh;
+  }
+
+  /* Navigation */
   nav {
-    position:fixed; top:0; width:100%; z-index:100;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:1.2rem 4rem;
-    background: rgba(244,249,251,0.85);
-    backdrop-filter: blur(16px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo { font-family:'Space Mono',monospace; font-size:.9rem; color:var(--accent); letter-spacing:.08em; font-weight: 700; }
-  .nav-links { display:flex; gap:2.5rem; }
-  .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; transition:color .2s; }
-  .nav-links a:hover { color:var(--accent); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 0.6; }
 
-  section { position:relative; z-index:1; }
+  /* General Section Formatting */
+  section { padding: 4rem 2rem; border-bottom: 1px solid var(--border); }
+  .section-title { font-size: 2.5rem; margin-bottom: 3rem; }
 
-  /* HERO */
-  #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:6rem 2rem 4rem; }
-  .hero-tag { font-family:'Space Mono',monospace; font-size:.78rem; color:var(--accent); letter-spacing:.18em; text-transform:uppercase; margin-bottom:1.5rem; font-weight: 700; }
-  .hero-name { font-size:clamp(3rem,8vw,6.5rem); font-weight:700; line-height:1; background: linear-gradient(135deg, #0f2438 0%, var(--accent) 60%, var(--accent2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:1.2rem; }
-  .hero-sub { font-size:clamp(1rem,2.5vw,1.3rem); color:var(--muted); max-width:620px; line-height:1.7; margin-bottom:.8rem; }
-  .hero-sub span { color:var(--accent); font-weight:600; }
-  .hero-detail { font-size:.88rem; color:var(--muted); margin-bottom:2.5rem; font-family:'Space Mono',monospace; letter-spacing:.04em; }
-  .hero-detail span { color:var(--accent); font-weight: 600; }
-  .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
-  .btn { padding:.85rem 2rem; border-radius:8px; font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:600; cursor:pointer; text-decoration:none; transition:all .25s; letter-spacing:.04em; }
-  .btn-primary { background: linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border:none; box-shadow: 0 4px 15px rgba(26,107,153,0.15); }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(26,107,153,0.3); }
-  .btn-ghost { background:var(--card); color:var(--accent); border:1px solid var(--border); }
-  .btn-ghost:hover { border-color:var(--accent); background: rgba(26,107,153,0.05); transform:translateY(-2px); }
+  /* Hero Section */
+  #hero {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-tag { margin-bottom: 2rem; }
+  .hero-name {
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-style: italic;
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+  }
+  .hero-sub {
+    max-width: 600px;
+    font-size: 1.1rem;
+  }
 
-  .orbit-wrap { position:relative; width:260px; height:260px; margin:3rem auto 0; }
-  .planet { position:absolute; inset:30px; border-radius:50%; background: radial-gradient(circle at 35% 35%, #fff, #e6f0f5); box-shadow: 0 0 40px rgba(26,107,153,.15), inset 0 0 20px rgba(26,107,153,.1); }
-  .ring { position:absolute; inset:10px; border-radius:50%; border:1px solid rgba(26,107,153,.2); }
-  .ring2 { position:absolute; inset:-10px; border-radius:50%; border:1px dashed rgba(80,163,209,.4); }
-  .rocket-dot { position:absolute; width:12px; height:12px; border-radius:50%; background: var(--accent); box-shadow:0 0 12px var(--accent); top:50%; left:50%; animation: orbit 4s linear infinite; }
-  .rocket-dot2 { position:absolute; width:8px; height:8px; border-radius:50%; background:var(--accent2); box-shadow:0 0 10px var(--accent2); top:50%; left:50%; animation: orbit2 7s linear infinite; }
-  @keyframes orbit { from{transform:rotate(0deg) translateX(120px)} to{transform:rotate(360deg) translateX(120px)} }
-  @keyframes orbit2 { from{transform:rotate(180deg) translateX(95px)} to{transform:rotate(540deg) translateX(95px)} }
+  /* Stats Grid */
+  .stats-wrapper {
+    margin: 4rem -2rem -4rem -2rem; /* Pull out to wrapper edges */
+    border-top: 1px solid var(--border);
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border); /* Acts as the 1px hairline border between cells */
+  }
+  .stat-cell {
+    background: var(--bg);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .stat-num { font-size: 2.5rem; line-height: 1; }
 
-  /* SECTIONS */
-  .section-label { font-family:'Space Mono',monospace; font-size:.75rem; color:var(--accent); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.8rem; font-weight:700; }
-  .section-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:700; margin-bottom:2rem; line-height:1.15; color: var(--text); }
-  .divider { width:60px; height:3px; margin:0 auto 3rem; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px; }
+  /* Typographic Lists (Experience & Projects) */
+  .list-row {
+    display: grid;
+    grid-template-columns: 3rem 1fr 200px;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .list-row:first-of-type { border-top: 1px solid var(--border); }
+  .list-row:last-child { border-bottom: none; }
+  
+  .list-index { opacity: 0.4; }
+  .list-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .list-desc { max-width: 700px; margin-bottom: 1rem; color: #333; }
+  .list-date { text-align: right; }
 
-  /* ABOUT */
-  #about { padding:7rem 2rem; max-width:960px; margin:0 auto; }
-  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
-  .about-text { color:var(--muted); line-height:1.85; font-size:1rem; }
-  .about-text p + p { margin-top:1rem; }
-  .about-text strong { color:var(--text); font-weight: 600; }
-  .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  .stat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.5rem; text-align:center; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-  .stat-num { font-family:'Space Mono',monospace; font-size:1.8rem; font-weight:700; color:var(--accent); line-height:1; }
-  .stat-label { font-size:.78rem; color:var(--muted); margin-top:.4rem; letter-spacing:.05em; font-weight: 500; }
+  /* Skills Stack */
+  .skill-line {
+    display: flex;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-line:first-of-type { border-top: 1px solid var(--border); }
+  .skill-line:last-child { border-bottom: none; }
+  .skill-cat { width: 250px; flex-shrink: 0; }
+  .skill-items { color: #444; }
 
-  /* EDUCATION */
-  #education { padding:4rem 2rem; max-width:960px; margin:0 auto; }
-  .edu-list { display:flex; flex-direction:column; gap:1.2rem; margin-top:2rem; }
-  .edu-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:2rem; transition:all .3s; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-  .edu-card:hover { border-color:var(--accent2); transform:translateY(-2px); box-shadow: 0 8px 30px rgba(26,107,153,0.08); }
-  .edu-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.5rem; flex-wrap:wrap; gap:.5rem; }
-  .edu-school { font-size:1.15rem; font-weight:700; color: var(--text); }
-  .edu-dates { font-family:'Space Mono',monospace; font-size:.78rem; color:var(--accent); font-weight: 700; }
-  .edu-degree { color:var(--accent2); font-size:.9rem; font-weight:600; margin-bottom:1rem; }
-  .edu-detail { color:var(--muted); font-size:.88rem; line-height:1.7; }
-  .edu-detail strong { color:var(--text); font-weight: 600; }
-  .badge { display:inline-block; padding:.2rem .65rem; border-radius:6px; font-size:.72rem; font-weight:700; font-family:'Space Mono',monospace; margin-right:.4rem; margin-top:.6rem; }
-  .badge-gold { background:rgba(212,149,0,.1); color:var(--gold); border:1px solid rgba(212,149,0,.3); }
-  .badge-blue { background:rgba(26,107,153,.08); color:var(--accent); border:1px solid rgba(26,107,153,.2); }
+  /* Buttons */
+  .email-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--border);
+    color: var(--blue);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .email-btn:hover { background: rgba(0,0,0,0.03); }
 
-  /* EXPERIENCE */
-  #experience { padding:4rem 2rem; max-width:960px; margin:0 auto; }
-  .exp-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:2rem; margin-top:2rem; transition:all .3s; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-  .exp-card:hover { border-color:var(--accent2); box-shadow: 0 8px 30px rgba(26,107,153,0.08); }
-  .exp-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.4rem; flex-wrap:wrap; gap:.5rem; }
-  .exp-org { font-size:1.2rem; font-weight:700; color: var(--text); }
-  .exp-dates { font-family:'Space Mono',monospace; font-size:.78rem; color:var(--accent); font-weight: 700; }
-  .exp-role { color:var(--accent2); font-size:.9rem; font-weight:600; margin-bottom:1.2rem; }
-  .exp-items { list-style:none; display:flex; flex-direction:column; gap:.8rem; }
-  .exp-items li { display:flex; gap:.8rem; color:var(--muted); font-size:.9rem; line-height:1.7; }
-  .exp-items li::before { content:'▸'; color:var(--accent2); flex-shrink:0; margin-top:.05rem; font-weight: bold; }
-  .exp-items li strong { color:var(--text); font-weight: 600; }
+  footer { padding: 2rem; text-align: center; color: #666; }
 
-  /* PROJECTS */
-  #projects { padding:5rem 2rem; max-width:1100px; margin:0 auto; }
-  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); gap:2rem; margin-top:3rem; }
-  .proj-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; position:relative; overflow:hidden; transition:all .3s; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-  .proj-card::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 80% 20%,rgba(26,107,153,.04),transparent 60%); pointer-events:none; }
-  .proj-card:hover { border-color:rgba(26,107,153,.4); transform:translateY(-4px); box-shadow:0 15px 40px rgba(26,107,153,.1); }
-  .proj-card.purple::before { background:radial-gradient(circle at 80% 20%,rgba(80,163,209,.06),transparent 60%); }
-  .proj-tag { display:inline-flex; align-items:center; gap:.4rem; font-family:'Space Mono',monospace; font-size:.7rem; font-weight: 700; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:999px; margin-bottom:1.5rem; margin-right:.4rem; }
-  .tag-blue { background:rgba(26,107,153,.08); color:var(--accent); border:1px solid rgba(26,107,153,.2); }
-  .tag-purple { background:rgba(80,163,209,.1); color:var(--accent2); border:1px solid rgba(80,163,209,.25); }
-  .tag-green { background:rgba(46,160,111,.1); color:#1a8a59; border:1px solid rgba(46,160,111,.25); }
-  .proj-title { font-size:1.35rem; font-weight:700; margin-bottom:.9rem; line-height:1.25; color: var(--text); }
-  .proj-desc { color:var(--muted); line-height:1.75; font-size:.92rem; margin-bottom:1.6rem; }
-  .proj-features { list-style:none; margin-bottom:1.8rem; }
-  .proj-features li { display:flex; align-items:flex-start; gap:.7rem; color:var(--muted); font-size:.87rem; line-height:1.6; padding:.35rem 0; border-bottom:1px solid var(--border); }
-  .proj-features li:last-child { border-bottom:none; }
-  .feat-dot { width:6px; height:6px; border-radius:50%; margin-top:.45rem; flex-shrink:0; }
-  .dot-blue { background:var(--accent); }
-  .dot-purple { background:var(--accent2); }
-  .dot-green { background:#1a8a59; }
-  .feat-label { color:var(--text); font-weight:700; }
-  .proj-langs { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.8rem; }
-  .lang-chip { font-family:'Space Mono',monospace; font-size:.72rem; font-weight: 700; padding:.3rem .8rem; border-radius:6px; background:rgba(26,107,153,.06); color:var(--accent); border: 1px solid rgba(26,107,153,.1); }
-  .proj-link { display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--accent); font-size:.88rem; font-weight:700; transition:gap .2s; }
-  .proj-link:hover { gap:.8rem; }
-
-  /* SKILLS */
-  #skills { padding:4rem 2rem; max-width:960px; margin:0 auto; }
-  .skills-grid { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
-  .skill-chip { padding:.55rem 1.2rem; border-radius:999px; background:var(--card); border:1px solid var(--border); font-size:.85rem; font-weight:600; color:var(--muted); transition:all .2s; box-shadow: 0 2px 10px rgba(0,0,0,0.01); }
-  .skill-chip:hover { border-color:var(--accent); color:var(--accent); background:rgba(26,107,153,.05); transform: translateY(-2px); }
-  .skill-chip.hi { border-color:var(--accent2); color:var(--accent); background: rgba(80,163,209,.05); }
-
-  /* AWARDS */
-  #awards { padding:4rem 2rem; max-width:960px; margin:0 auto; }
-  .awards-list { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
-  .award-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.6rem 2rem; display:flex; align-items:center; gap:1.5rem; transition:all .3s; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-  .award-card:hover { border-color:var(--gold); transform:translateY(-2px); box-shadow: 0 8px 25px rgba(212,149,0,.1); }
-  .award-icon { font-size:2.2rem; flex-shrink:0; }
-  .award-title { font-size:1.05rem; font-weight:700; margin-bottom:.3rem; color: var(--text); }
-  .award-sub { color:var(--muted); font-size:.88rem; line-height:1.6; }
-  .award-sub strong { color:var(--text); font-weight: 600; }
-
-  /* CONTACT */
-  #contact { padding:7rem 2rem; text-align:center; background: linear-gradient(180deg,transparent,rgba(26,107,153,.05) 50%,transparent); }
-  .contact-inner { max-width:600px; margin:0 auto; }
-  .contact-title { font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:1rem; color: var(--text); }
-  .contact-sub { color:var(--muted); line-height:1.7; margin-bottom:2.5rem; font-weight: 500; }
-  .contact-links { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-
-  footer { padding:2rem; text-align:center; border-top:1px solid var(--border); color:var(--muted); font-size:.82rem; font-family:'Space Mono',monospace; font-weight: 600; }
+  /* Mobile Adjustments */
+  @media (max-width: 900px) {
+    .list-row { grid-template-columns: 2rem 1fr; }
+    .list-date { grid-column: 1 / -1; text-align: left; margin-top: 1rem; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .skill-line { flex-direction: column; gap: 0.5rem; }
+    .nav-links { display: none; } /* Simplified mobile nav for editorial look */
+  }
 </style>
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-
-<nav>
-  <div class="nav-logo">APG.aerospace</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-tag">✦ Aerospace Engineering Student</div>
-  <h1 class="hero-name">Aitor Pérez<br>Grau</h1>
-  <p class="hero-sub">
-    From <span>orbital mechanics</span> to <span>6-DOF rocket simulation</span> —
-    translating complex aerospace data into rigorous engineering and actionable insight.
-  </p>
-  <p class="hero-detail">
-    UPV · Top 5% · <span>GPA 9.1/10</span> · Transferring to <span>TU Delft</span> Sep 2026 · Faraday Rocketry UPV
-  </p>
-  <div class="hero-ctas">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
-    <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-  </div>
-  <div class="orbit-wrap">
-    <div class="ring2"></div>
-    <div class="ring"></div>
-    <div class="planet"></div>
-    <div class="rocket-dot"></div>
-    <div class="rocket-dot2"></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">// 01 — About</div>
-  <h2 class="section-title">Engineer. Analyst.<br>Mission Builder.</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>
-        I'm an <strong>Aerospace Engineering student</strong> at UPV (top 5%, GPA 9.1/10),
-        transferring to <strong>TU Delft</strong> in September 2026. My work sits at the intersection
-        of flight dynamics, propulsion analysis, and data-driven engineering.
-      </p>
-      <p>
-        At <strong>Faraday Rocketry UPV</strong> — the only freshman admitted to their Aerodynamics
-        department — I've contributed to breaking the <strong>Spanish student rocketry altitude record
-        at 10,843 m</strong>, working on HIL avionics software and flight simulation.
-      </p>
-      <p>
-        I'm particularly interested in the commercial future of <strong>in-space propulsion</strong>
-        and orbital infrastructure, and in translating aerospace complexity into clear financial and
-        business cases.
-      </p>
+<div class="wrapper">
+  
+  <nav>
+    <div class="mono mono-label">APG.aerospace</div>
+    <div class="nav-links mono mono-label">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num">9.1</div>
-        <div class="stat-label">GPA at UPV (out of 10)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">Top 5%</div>
-        <div class="stat-label">Aerospace Engineering cohort</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">10,843m</div>
-        <div class="stat-label">Spanish Student Altitude Record</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">Top 0.8%</div>
-        <div class="stat-label">Valencia University Entrance Exams</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">// 02 — Education</div>
-  <h2 class="section-title">Academic Background</h2>
-  <div class="edu-list">
-
-    <div class="edu-card">
-      <div class="edu-header">
-        <div class="edu-school">Delft University of Technology (TU Delft)</div>
-        <div class="edu-dates">Sep 2026 — 2029</div>
-      </div>
-      <div class="edu-degree">BSc Aerospace Engineering · Delft, The Netherlands</div>
-      <p class="edu-detail">
-        Admitted through competitive selection while simultaneously maintaining a <strong>9.1/10 GPA</strong>
-        at UPV, preparing for TU Delft entrance exams, and holding an active engineering role at Faraday
-        Rocketry — demonstrating the ability to manage multiple high-demand workstreams independently.
-      </p>
-    </div>
-
-    <div class="edu-card">
-      <div class="edu-header">
-        <div class="edu-school">Universitat Politècnica de València (UPV)</div>
-        <div class="edu-dates">Sep 2025 — Jun 2026</div>
-      </div>
-      <div class="edu-degree">BSc Aerospace Engineering · English Taught Track · Valencia, Spain</div>
-      <p class="edu-detail">
-        <strong>GPA 9.1/10 — top 5%</strong> of the Aerospace Engineering cohort.
-      </p>
-      <div>
-        <span class="badge badge-gold">Chemistry 9.7</span>
-        <span class="badge badge-blue">Physics 9.2</span>
-        <span class="badge badge-blue">Mathematics 9.1</span>
-        <span class="badge badge-blue">Materials Science 9.2</span>
-        <span class="badge badge-blue">Business Management 9.0</span>
-        <span class="badge badge-blue">Technical Drawing 9.1</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">// 03 — Experience</div>
-  <h2 class="section-title">Engineering Experience</h2>
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-org">Faraday Rocketry UPV</div>
-      <div class="exp-dates">Oct 2025 — Present</div>
-    </div>
-    <div class="exp-role">Flight Dynamics Engineer → HIL Avionics Engineer · Valencia, Spain</div>
-    <ul class="exp-items">
-      <li><strong>Selective Admission:</strong> The only freshman selected into the Aerodynamics department of an 80+ member organisation with 2× EuRoC titles, working across aerodynamics, avionics, propulsion, and recovery sub-teams.</li>
-      <li><strong>Spanish Altitude Record:</strong> Contributed to the 2026 campaign that broke the Spanish student rocketry altitude record at 10,843 m — a team that designs, builds, and launches complete rocket systems from scratch.</li>
-      <li><strong>Flight Analysis:</strong> Produced an independent 14-page technical report on the EuRoC 2025-winning <em>Skybreaker</em> rocket using RocketPy and Python — processing multi-parameter flight data (thrust, stability margins, drag polars, trajectory) to derive the optimal launch heading.</li>
-      <li><strong>HIL Avionics:</strong> Developed Python testing tools for the ORIGIN flight computer, managing code via GitHub and translating technical outputs into cross-team documentation.</li>
-      <li><strong>Parachute Recovery:</strong> Contributed to parachute ejection testing for the recovery sub-system.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div style="text-align:center">
-    <div class="section-label">// 04 — Projects</div>
-    <h2 class="section-title">Analytical Projects</h2>
-    <div class="divider"></div>
-  </div>
-  <div class="projects-grid">
-
-    <!-- Skybreaker -->
-    <div class="proj-card purple">
-      <div>
-        <span class="proj-tag tag-purple">🚀 Flight Dynamics</span>
-        <span class="proj-tag tag-blue">Faraday Rocketry</span>
-      </div>
-      <h3 class="proj-title">Skybreaker — 6-DOF Flight Analysis & Trajectory Optimisation</h3>
-      <p class="proj-desc">
-        Independent technical analysis of <em>Skybreaker</em>, Faraday Rocketry UPV's solid rocket that
-        won the EuRoC 2025 3 km category. Using Python and RocketPy, the report validates the vehicle's
-        performance envelope and determines the optimal launch heading to maximise apogee.
-      </p>
-      <ul class="proj-features">
-        <li>
-          <span class="feat-dot dot-purple"></span>
-          <span><span class="feat-label">6-DOF Simulation — </span>RocketPy modelling of variable mass inertia, thrust curves, static margins and Mach-dependent drag coefficients.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-purple"></span>
-          <span><span class="feat-label">Wind Compensation — </span>Weathercocking analysis against specific wind vectors (Y: −5.76 m/s, X: 4.39 m/s) to optimise launch rail heading to 145°.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-purple"></span>
-          <span><span class="feat-label">Result — </span>Optimal apogee of 2,837.5 m achieved with safe stability parameters — documented in a 14-page technical report.</span>
-        </li>
-      </ul>
-      <div class="proj-langs">
-        <span class="lang-chip">Python</span>
-        <span class="lang-chip">RocketPy</span>
-        <span class="lang-chip">NumPy</span>
-        <span class="lang-chip">Jupyter Notebook</span>
-      </div>
-      <a href="https://github.com/aitorperezgrau-sys/Skybreaker_technical_analysis_RocketPy" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <!-- LEO-GEO -->
-    <div class="proj-card">
-      <div>
-        <span class="proj-tag tag-blue">🛰️ Orbital Mechanics</span>
-        <span class="proj-tag tag-blue">UPV Coursework</span>
-      </div>
-      <h3 class="proj-title">LEO–GEO Hohmann Transfer — In-Space Propulsion Feasibility Analysis</h3>
-      <p class="proj-desc">
-        A MATLAB feasibility study modelling propellant-mass requirements for a bidirectional
-        LEO↔GEO Hohmann transfer (Δv = 7,864 × 10³ m/s), benchmarking four propulsion technologies
-        and drawing quantitative conclusions about the limits of current in-space propulsion.
-      </p>
-      <ul class="proj-features">
-        <li>
-          <span class="feat-dot dot-blue"></span>
-          <span><span class="feat-label">Mass Modelling — </span>Propellant mass vs specific impulse computed for Cold Gas CO₂, Hydrazine, LOX/CH₄ and LOX/H₂ across 7 orders of magnitude.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-blue"></span>
-          <span><span class="feat-label">Data Visualisation — </span>Annotated constraint overlays and log-scale comparative plots for clear cross-technology trade-off communication.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-blue"></span>
-          <span><span class="feat-label">Conclusion — </span>No current single-stage technology meets mission mass constraints, directly motivating the need for advanced green propulsion systems.</span>
-        </li>
-      </ul>
-      <div class="proj-langs">
-        <span class="lang-chip">MATLAB</span>
-        <span class="lang-chip">Orbital Mechanics</span>
-        <span class="lang-chip">Data Visualisation</span>
-      </div>
-      <a href="https://github.com/aitorperezgrau-sys/LEO-GEO-Hoffman-transfer-in-MATLAB" target="_blank" class="proj-link">View on GitHub →</a>
-    </div>
-
-    <!-- Aviation Cost -->
-    <div class="proj-card">
-      <div>
-        <span class="proj-tag tag-green">✈️ Aviation Safety</span>
-        <span class="proj-tag tag-blue">UPV Coursework</span>
-      </div>
-      <h3 class="proj-title">Commercial Aviation Safety Cost Analysis</h3>
-      <p class="proj-desc">
-        A parameterised Excel financial model covering six commercial aircraft types (A320 to B787),
-        linking operational metrics to financial variables to compute standardised costs of aircraft loss,
-        fatalities, maintenance, and acquisition.
-      </p>
-      <ul class="proj-features">
-        <li>
-          <span class="feat-dot dot-green"></span>
-          <span><span class="feat-label">Scope — </span>Six aircraft types (A320 → B787), combining RPK, flight cycles, hull loss rates, acquisition cost, and statistical value of human life.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-green"></span>
-          <span><span class="feat-label">Finding — </span>Maintenance cost alone is an insufficient safety proxy given EASA/ICAO standardisation and the ~75% human-error share of accidents.</span>
-        </li>
-      </ul>
-      <div class="proj-langs">
-        <span class="lang-chip">Microsoft Excel</span>
-        <span class="lang-chip">Financial Modelling</span>
-        <span class="lang-chip">EASA / ICAO Data</span>
-      </div>
-    </div>
-
-    <!-- Entrepreneurship -->
-    <div class="proj-card">
-      <div>
-        <span class="proj-tag tag-green">💡 Entrepreneurship</span>
-        <span class="proj-tag tag-blue">IDEAS UPV</span>
-      </div>
-      <h3 class="proj-title">Entrepreneurship Bootcamp — Solo Investor Pitch</h3>
-      <p class="proj-desc">
-        Venture development programme based on Lean Startup principles, with mentorship from active
-        founders. Secured a podium finish by independently structuring and delivering a solo investor
-        pitch after full team absence on the final day.
-      </p>
-      <ul class="proj-features">
-        <li>
-          <span class="feat-dot dot-green"></span>
-          <span><span class="feat-label">Solo pitch — </span>Delivered a complete investor presentation independently under pressure, covering market validation, business model, and traction.</span>
-        </li>
-        <li>
-          <span class="feat-dot dot-green"></span>
-          <span><span class="feat-label">Result — </span>Podium finish among all competing teams at IDEAS UPV.</span>
-        </li>
-      </ul>
-      <div class="proj-langs">
-        <span class="lang-chip">Lean Startup</span>
-        <span class="lang-chip">Business Validation</span>
-        <span class="lang-chip">Pitching</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">// 05 — Skills</div>
-  <h2 class="section-title">Technical Stack</h2>
-  <div class="skills-grid">
-    <span class="skill-chip hi">Python</span>
-    <span class="skill-chip hi">MATLAB</span>
-    <span class="skill-chip hi">RocketPy (6-DOF)</span>
-    <span class="skill-chip">NumPy</span>
-    <span class="skill-chip">Matplotlib</span>
-    <span class="skill-chip">Jupyter Notebook</span>
-    <span class="skill-chip hi">Orbital Mechanics</span>
-    <span class="skill-chip">Flight Dynamics</span>
-    <span class="skill-chip">Stability Analysis</span>
-    <span class="skill-chip">Trajectory Optimisation</span>
-    <span class="skill-chip">In-Space Propulsion</span>
-    <span class="skill-chip">Hardware-in-the-Loop</span>
-    <span class="skill-chip">OpenRocket</span>
-    <span class="skill-chip hi">Microsoft Excel</span>
-    <span class="skill-chip">Financial Modelling</span>
-    <span class="skill-chip">Data Visualisation</span>
-    <span class="skill-chip">GitHub</span>
-    <span class="skill-chip">OOP</span>
-    <span class="skill-chip">Technical Reporting</span>
-  </div>
-  <div style="margin-top:1.5rem">
-    <div class="section-label" style="margin-bottom:.8rem">Languages</div>
-    <div class="skills-grid">
-      <span class="skill-chip hi">Spanish (Native)</span>
-      <span class="skill-chip hi">Catalan (Native)</span>
-      <span class="skill-chip">English — TOEFL iBT 97 (C1)</span>
-      <span class="skill-chip">Italian (Basic)</span>
-    </div>
-  </div>
-</section>
-
-<!-- AWARDS -->
-<section id="awards">
-  <div class="section-label">// 06 — Honours</div>
-  <h2 class="section-title">Awards & Extracurriculars</h2>
-  <div class="awards-list">
-    <div class="award-card">
-      <div class="award-icon">🥇</div>
-      <div>
-        <div class="award-title">UPV Academic Excellence Award — Top 0.8%</div>
-        <p class="award-sub">Ranked inside the <strong>top 200 of 24,000 candidates</strong> in the Valencia region university entrance exams (2025).</p>
-      </div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">⚽</div>
-      <div>
-        <div class="award-title">National Athlete — Beach Soccer Goalkeeper</div>
-        <p class="award-sub">Competed as <strong>goalkeeper</strong> at the 2024 U19 Spanish National Beach Soccer Championship. Awarded the <strong>Sport Merit Scholarship</strong> by the City Council. The position required constant communication, real-time decision-making, and organisation of the defensive unit under pressure.</p>
-      </div>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">🚀</div>
-      <div>
-        <div class="award-title">Spanish Student Altitude Record — 10,843 m</div>
-        <p class="award-sub">Contributing member of the Faraday Rocketry UPV 2026 campaign that broke the <strong>Spanish student rocketry altitude record</strong>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label" style="text-align:center">// 07 — Contact</div>
-    <h2 class="contact-title">Let's Connect</h2>
-    <p class="contact-sub">
-      Interested in aerospace engineering, rocketry, propulsion, or venture development?
-      Find me on GitHub or LinkedIn, or send me an email.
+  <!-- HERO -->
+  <section id="hero">
+    <div class="mono mono-label hero-tag">Aerospace Engineering Student</div>
+    <h1 class="hero-name">Aitor Pérez Grau</h1>
+    <p class="hero-sub">
+      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace data into rigorous engineering and actionable insight. Transferring to TU Delft in Sep 2026.
     </p>
-    <div class="contact-links">
-      <a href="mailto:aitor.perez.grau@gmail.com" class="btn btn-primary">aitor.perez.grau@gmail.com</a>
-      <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+  </section>
+
+  <!-- ABOUT & STATS -->
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <div style="max-width: 800px; font-size: 1.1rem; column-gap: 3rem;">
+      <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus lies at the intersection of flight dynamics, propulsion trade-off analysis, and hardware-in-the-loop avionics testing.</p>
+      <p>As the only freshman admitted to the Aerodynamics department at Faraday Rocketry UPV, I contributed to the 2026 campaign that broke the Spanish student rocketry altitude record. I am driven by the challenge of scaling the commercial future of in-space propulsion and orbital infrastructure.</p>
     </div>
-  </div>
-</section>
+    
+    <div class="stats-wrapper">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-num">9.1</div>
+          <div class="mono mono-label">UPV GPA (/10)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">5%</div>
+          <div class="mono mono-label">Cohort Percentile</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">10,843m</div>
+          <div class="mono mono-label">Altitude Record</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">0.8%</div>
+          <div class="mono mono-label">Exam Percentile</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2026 Aitor Pérez Grau &nbsp;·&nbsp; Aerospace Engineering Student &nbsp;·&nbsp; Faraday Rocketry UPV &nbsp;·&nbsp; Valencia → Delft</p>
-</footer>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Experience & Education</h2>
+    
+    <div class="list-row">
+      <div class="mono list-index">01</div>
+      <div>
+        <h3 class="list-title">Flight Dynamics & Avionics Engineer</h3>
+        <div class="mono" style="margin-bottom: 1rem;">Faraday Rocketry UPV</div>
+        <p class="list-desc">Contributed to breaking the Spanish student rocketry altitude record (10,843 m). Developed Python testing tools for the ORIGIN flight computer and produced comprehensive 6-DOF flight analysis for the EuRoC-winning Skybreaker rocket.</p>
+      </div>
+      <div class="mono list-date blue-text">Oct 2025 — Present</div>
+    </div>
 
-<script>
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let particles = [];
-function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-function initParticles() {
-  particles = [];
-  for (let i = 0; i < 150; i++) {
-    particles.push({ 
-      x: Math.random()*canvas.width, 
-      y: Math.random()*canvas.height, 
-      r: Math.random()*1.5+0.5, 
-      o: Math.random()*0.5+0.1, 
-      speed: Math.random()*0.002+0.001, 
-      phase: Math.random()*Math.PI*2 
-    });
-  }
-}
-function drawParticles(t) {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for (const p of particles) {
-    const op = p.o*(0.4+0.6*(0.5+0.5*Math.sin(t*p.speed+p.phase)));
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    // Draw the background particles in the new Primary Blue color
-    ctx.fillStyle=`rgba(26,107,153,${op})`; 
-    ctx.fill();
-  }
-  requestAnimationFrame(drawParticles);
-}
-resize(); initParticles();
-window.addEventListener('resize',()=>{resize();initParticles();});
-requestAnimationFrame(drawParticles);
+    <div class="list-row">
+      <div class="mono list-index">02</div>
+      <div>
+        <h3 class="list-title">BSc Aerospace Engineering</h3>
+        <div class="mono" style="margin-bottom: 1rem;">TU Delft</div>
+        <p class="list-desc">Admitted through competitive selection. Transitioning studies to the Netherlands to focus on advanced aerospace engineering curricula.</p>
+      </div>
+      <div class="mono list-date blue-text">Sep 2026 — 2029</div>
+    </div>
 
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});
-  navLinks.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent)':'';});
-});
-</script>
+    <div class="list-row">
+      <div class="mono list-index">03</div>
+      <div>
+        <h3 class="list-title">BSc Aerospace Engineering (English Track)</h3>
+        <div class="mono" style="margin-bottom: 1rem;">Universitat Politècnica de València</div>
+        <p class="list-desc">Achieved a 9.1/10 GPA (Top 5%). Key grades include Chemistry (9.7), Physics (9.2), Materials Science (9.2), and Business Management (9.0).</p>
+      </div>
+      <div class="mono list-date blue-text">Sep 2025 — Jun 2026</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="list-row">
+      <div class="mono list-index">01</div>
+      <div>
+        <h3 class="list-title">Skybreaker 6-DOF Flight Analysis</h3>
+        <p class="list-desc">Validated the vehicle's performance envelope and determined the optimal launch heading (145°) to maximize apogee using Python and RocketPy. Compiled in a 14-page technical report.</p>
+        <a href="https://github.com/aitorperezgrau-sys/Skybreaker_technical_analysis_RocketPy" target="_blank" class="mono github-link">GitHub Repository ↗</a>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+
+    <div class="list-row">
+      <div class="mono list-index">02</div>
+      <div>
+        <h3 class="list-title">In-Space Propulsion Feasibility Analysis</h3>
+        <p class="list-desc">Built a MATLAB model for a bidirectional LEO-GEO Hohmann transfer. Generated log-scale comparative plots to mathematically prove current single-stage technologies fail mass constraints, highlighting the need for green propulsion.</p>
+        <a href="https://github.com/aitorperezgrau-sys/LEO-GEO-Hoffman-transfer-in-MATLAB" target="_blank" class="mono github-link">GitHub Repository ↗</a>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+
+    <div class="list-row">
+      <div class="mono list-index">03</div>
+      <div>
+        <h3 class="list-title">Aviation Safety Cost Analysis</h3>
+        <p class="list-desc">Developed a parameterized Excel financial model linking EASA/ICAO operational metrics to financial variables to compute standardized hourly costs of aircraft loss across six commercial aircraft types.</p>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+    
+    <div class="list-row">
+      <div class="mono list-index">04</div>
+      <div>
+        <h3 class="list-title">Entrepreneurship Bootcamp Pitch</h3>
+        <p class="list-desc">Secured a podium finish at IDEAS UPV by independently structuring and delivering a solo investor pitch based on Lean Startup principles and business validation models.</p>
+      </div>
+      <div class="mono list-date blue-text">2025</div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div>
+      <div class="skill-line">
+        <div class="mono mono-label skill-cat">Data & Modelling</div>
+        <div class="skill-items">Python, MATLAB, NumPy, Matplotlib, Microsoft Excel, Data Visualization</div>
+      </div>
+      <div class="skill-line">
+        <div class="mono mono-label skill-cat">Aerospace</div>
+        <div class="skill-items">RocketPy (6-DOF), OpenRocket, Flight Dynamics, Orbital Mechanics, Propulsion Analysis</div>
+      </div>
+      <div class="skill-line">
+        <div class="mono mono-label skill-cat">Software & Tools</div>
+        <div class="skill-items">Object-Oriented Programming, GitHub, Hardware-in-the-Loop, Technical Reporting</div>
+      </div>
+      <div class="skill-line">
+        <div class="mono mono-label skill-cat">Languages</div>
+        <div class="skill-items">Spanish (Native), Catalan (Native), English (C1 / TOEFL 97), Italian (Basic)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <section id="contact" style="border-bottom: none; text-align: center; padding: 6rem 2rem;">
+    <h2 class="section-title" style="margin-bottom: 1.5rem;">Let's Connect</h2>
+    <p style="margin-bottom: 3rem; color: #444;">Available for discussions regarding aerospace engineering and venture development.</p>
+    <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center;">
+      <a href="mailto:aitor.perez.grau@gmail.com" class="mono mono-label email-btn">Email Contact</a>
+      <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="mono mono-label github-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="mono mono-label github-link" style="color: var(--text);">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="mono">© 2026 Aitor Pérez Grau. Valencia → Delft.</div>
+  </footer>
+
+</div>
+
 </body>
 </html>
