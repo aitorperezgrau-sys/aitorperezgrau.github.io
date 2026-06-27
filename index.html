@@ -84,28 +84,27 @@
     padding: 4rem 2rem;
     border-bottom: 1px solid var(--border);
   }
-  .hero-tag { margin-bottom: 2rem; }
+  .hero-tag { margin-bottom: 2rem; letter-spacing: 0.15em; font-weight: 500; }
   .hero-name {
-    font-size: clamp(4rem, 12vw, 9rem);
-    font-style: italic;
-    line-height: 0.9;
-    margin-bottom: 1.5rem;
+    font-size: clamp(5rem, 15vw, 11rem);
+    line-height: 0.85;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
   }
-  .hero-sub {
-    max-width: 600px;
-    font-size: 1.1rem;
+  .hero-name span.italic {
+    font-style: italic;
   }
 
   /* Stats Grid */
   .stats-wrapper {
-    margin: 4rem -2rem -4rem -2rem; /* Pull out to wrapper edges */
+    margin: 4rem -2rem -4rem -2rem; 
     border-top: 1px solid var(--border);
   }
   .stat-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: var(--border); /* Acts as the 1px hairline border between cells */
+    background: var(--border); 
   }
   .stat-cell {
     background: var(--bg);
@@ -143,18 +142,62 @@
   .skill-cat { width: 250px; flex-shrink: 0; }
   .skill-items { color: #444; }
 
-  /* Buttons */
-  .email-btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    border: 1px solid var(--border);
-    color: var(--blue);
-    text-decoration: none;
-    transition: background 0.2s;
+  /* Contact Section */
+  #contact {
+    padding: 8rem 2rem;
+    border-bottom: none;
   }
-  .email-btn:hover { background: rgba(0,0,0,0.03); }
+  .contact-wrapper {
+    max-width: 600px;
+  }
+  .contact-header {
+    color: #666;
+    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+  }
+  .contact-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+  .contact-desc {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+  }
+  
+  /* Contact Buttons */
+  .btn-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  .btn-email {
+    background: var(--text);
+    color: var(--bg);
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .btn-email:hover { background: #333; }
+  
+  .social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .btn-social {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: transparent;
+  }
+  .btn-social:hover { background: rgba(0,0,0,0.03); }
 
-  footer { padding: 2rem; text-align: center; color: #666; }
+  footer { padding: 2rem; text-align: center; color: #666; border-top: 1px solid var(--border); }
 
   /* Mobile Adjustments */
   @media (max-width: 900px) {
@@ -162,7 +205,8 @@
     .list-date { grid-column: 1 / -1; text-align: left; margin-top: 1rem; }
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
     .skill-line { flex-direction: column; gap: 0.5rem; }
-    .nav-links { display: none; } /* Simplified mobile nav for editorial look */
+    .nav-links { display: none; }
+    .social-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -171,7 +215,7 @@
 <div class="wrapper">
   
   <nav>
-    <div class="mono mono-label">APG.aerospace</div>
+    <div class="mono mono-label">APG</div>
     <div class="nav-links mono mono-label">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -182,17 +226,18 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="mono mono-label hero-tag">Aerospace Engineering Student</div>
-    <h1 class="hero-name">Aitor Pérez Grau</h1>
-    <p class="hero-sub">
-      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace data into rigorous engineering and actionable insight. Transferring to TU Delft in Sep 2026.
-    </p>
+    <div class="mono mono-label hero-tag blue-text">Aerospace Engineering Student</div>
+    <h1 class="hero-name">
+      Aitor<br>
+      <span class="italic">Pérez</span><br>
+      Grau
+    </h1>
   </section>
 
   <!-- ABOUT & STATS -->
   <section id="about">
     <h2 class="section-title">About</h2>
-    <div style="max-width: 800px; font-size: 1.1rem; column-gap: 3rem;">
+    <div style="max-width: 800px; font-size: 1.1rem;">
       <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus lies at the intersection of flight dynamics, propulsion trade-off analysis, and hardware-in-the-loop avionics testing.</p>
       <p>As the only freshman admitted to the Aerodynamics department at Faraday Rocketry UPV, I contributed to the 2026 campaign that broke the Spanish student rocketry altitude record. I am driven by the challenge of scaling the commercial future of in-space propulsion and orbital infrastructure.</p>
     </div>
@@ -320,14 +365,30 @@
     </div>
   </section>
 
-  <!-- CONTACT / FOOTER -->
-  <section id="contact" style="border-bottom: none; text-align: center; padding: 6rem 2rem;">
-    <h2 class="section-title" style="margin-bottom: 1.5rem;">Let's Connect</h2>
-    <p style="margin-bottom: 3rem; color: #444;">Available for discussions regarding aerospace engineering and venture development.</p>
-    <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center;">
-      <a href="mailto:aitor.perez.grau@gmail.com" class="mono mono-label email-btn">Email Contact</a>
-      <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="mono mono-label github-link">GitHub</a>
-      <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="mono mono-label github-link" style="color: var(--text);">LinkedIn</a>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrapper">
+      <div class="mono contact-header">07 — CONTACT</div>
+      <h2 class="contact-title">Let's Connect</h2>
+      <p class="contact-desc">
+        Interested in aerospace engineering, rocketry, propulsion, or venture development? Find me on GitHub or LinkedIn, or send me an email.
+      </p>
+      
+      <a href="mailto:aitor.perez.grau@gmail.com" class="btn-contact btn-email mono">
+        <span>aitor.perez.grau@gmail.com</span>
+        <span>→</span>
+      </a>
+      
+      <div class="social-grid">
+        <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="btn-contact btn-social mono">
+          <span>LinkedIn</span>
+          <span>↗</span>
+        </a>
+        <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="btn-contact btn-social mono">
+          <span>GitHub</span>
+          <span>↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
