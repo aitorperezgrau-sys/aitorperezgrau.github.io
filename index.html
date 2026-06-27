@@ -75,8 +75,20 @@
   .nav-links a:hover { opacity: 0.6; }
 
   /* General Section Formatting */
-  section { padding: 4rem 2rem; border-bottom: 1px solid var(--border); }
-  .section-title { font-size: 2.5rem; margin-bottom: 3rem; }
+  section { padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
+  
+  /* Unified Section Subtitles */
+  .section-prefix {
+    color: #666;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+  .section-title { 
+    font-size: clamp(3.5rem, 8vw, 5.5rem); 
+    margin-bottom: 3.5rem; 
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
 
   /* Hero Section */
   #hero {
@@ -89,12 +101,12 @@
     border-bottom: 1px solid var(--border);
   }
   .hero-tag { 
-    margin-bottom: 2.5rem; 
-    letter-spacing: 0.2em; 
+    margin-bottom: 2rem; 
+    letter-spacing: 0.15em; 
     font-weight: 600; 
   }
   .hero-name {
-    font-size: clamp(6rem, 18vw, 13rem);
+    font-size: clamp(4.5rem, 14vw, 10rem); /* Made slightly smaller */
     line-height: 0.88;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
@@ -111,7 +123,7 @@
 
   /* Stats Grid */
   .stats-wrapper {
-    margin: 4rem -2rem -4rem -2rem; 
+    margin: 4rem -2rem -5rem -2rem; 
     border-top: 1px solid var(--border);
   }
   .stat-grid {
@@ -158,41 +170,36 @@
 
   /* Contact Section */
   #contact {
-    padding: 8rem 2rem;
+    padding: 6rem 2rem 8rem 2rem;
     border-bottom: none;
   }
   .contact-wrapper {
-    max-width: 700px;
-  }
-  .contact-title {
-    font-size: clamp(4rem, 10vw, 6rem);
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+    max-width: 650px;
   }
   .contact-desc {
     font-size: 1.15rem;
-    color: #555;
-    margin-bottom: 3rem;
+    color: #444;
+    margin-bottom: 2rem;
     line-height: 1.6;
   }
   
-  /* Contact Buttons */
+  /* Contact Buttons (Matched to reference image) */
   .btn-contact {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1.5rem;
     text-decoration: none;
-    font-size: 0.95rem;
     transition: all 0.2s ease;
   }
   .btn-email {
-    background: #111;
+    background: #0f0f0f;
     color: #fff;
     width: 100%;
     margin-bottom: 1rem;
+    font-weight: 500;
   }
-  .btn-email:hover { background: #333; }
+  .btn-email:hover { background: #222; }
   
   .social-grid {
     display: grid;
@@ -201,7 +208,7 @@
   }
   .btn-social {
     border: 1px solid var(--border);
-    color: #555;
+    color: #444;
     background: transparent;
   }
   .btn-social:hover { 
@@ -251,6 +258,7 @@
 
   <!-- ABOUT & STATS -->
   <section id="about">
+    <div class="mono mono-label section-prefix">01 — Profile</div>
     <h2 class="section-title">About</h2>
     <div style="max-width: 800px; font-size: 1.1rem;">
       <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus lies at the intersection of flight dynamics, propulsion trade-off analysis, and hardware-in-the-loop avionics testing.</p>
@@ -281,6 +289,7 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
+    <div class="mono mono-label section-prefix">02 — Background</div>
     <h2 class="section-title">Experience & Education</h2>
     
     <div class="list-row">
@@ -316,6 +325,7 @@
 
   <!-- PROJECTS -->
   <section id="projects">
+    <div class="mono mono-label section-prefix">03 — Portfolio</div>
     <h2 class="section-title">Projects</h2>
 
     <div class="list-row">
@@ -359,6 +369,7 @@
 
   <!-- SKILLS -->
   <section id="skills">
+    <div class="mono mono-label section-prefix">04 — Capabilities</div>
     <h2 class="section-title">Technical Skills</h2>
     <div>
       <div class="skill-line">
@@ -383,7 +394,8 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-wrapper">
-      <h2 class="contact-title">Let's Connect</h2>
+      <div class="mono mono-label section-prefix">05 — Contact</div>
+      <h2 class="section-title" style="margin-bottom: 2.5rem;">Let's Connect</h2>
       <p class="contact-desc">
         Interested in aerospace engineering, rocketry, propulsion, or venture development? Find me on GitHub or LinkedIn, or send me an email.
       </p>
@@ -395,12 +407,10 @@
       
       <div class="social-grid">
         <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="btn-contact btn-social mono">
-          <span>LinkedIn</span>
-          <span>↗</span>
+          <span>LinkedIn ↗</span>
         </a>
         <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="btn-contact btn-social mono">
-          <span>GitHub</span>
-          <span>↗</span>
+          <span>GitHub ↗</span>
         </a>
       </div>
     </div>
