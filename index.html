@@ -62,6 +62,10 @@
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border);
   }
+  .nav-logo {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a {
     color: var(--text);
@@ -76,23 +80,33 @@
 
   /* Hero Section */
   #hero {
-    height: 85vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem 4rem 2rem;
     border-bottom: 1px solid var(--border);
   }
-  .hero-tag { margin-bottom: 2rem; letter-spacing: 0.15em; font-weight: 500; }
+  .hero-tag { 
+    margin-bottom: 2.5rem; 
+    letter-spacing: 0.2em; 
+    font-weight: 600; 
+  }
   .hero-name {
-    font-size: clamp(5rem, 15vw, 11rem);
-    line-height: 0.85;
+    font-size: clamp(6rem, 18vw, 13rem);
+    line-height: 0.88;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
   .hero-name span.italic {
     font-style: italic;
+  }
+  .hero-sub {
+    max-width: 600px;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    color: #444;
   }
 
   /* Stats Grid */
@@ -148,23 +162,18 @@
     border-bottom: none;
   }
   .contact-wrapper {
-    max-width: 600px;
-  }
-  .contact-header {
-    color: #666;
-    margin-bottom: 3rem;
-    letter-spacing: 0.1em;
+    max-width: 700px;
   }
   .contact-title {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(4rem, 10vw, 6rem);
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
   .contact-desc {
     font-size: 1.15rem;
-    color: #444;
+    color: #555;
     margin-bottom: 3rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   
   /* Contact Buttons */
@@ -172,14 +181,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: all 0.2s ease;
   }
   .btn-email {
-    background: var(--text);
-    color: var(--bg);
+    background: #111;
+    color: #fff;
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -192,10 +201,13 @@
   }
   .btn-social {
     border: 1px solid var(--border);
-    color: var(--text);
+    color: #555;
     background: transparent;
   }
-  .btn-social:hover { background: rgba(0,0,0,0.03); }
+  .btn-social:hover { 
+    background: rgba(0,0,0,0.03); 
+    color: var(--text);
+  }
 
   footer { padding: 2rem; text-align: center; color: #666; border-top: 1px solid var(--border); }
 
@@ -215,7 +227,7 @@
 <div class="wrapper">
   
   <nav>
-    <div class="mono mono-label">APG</div>
+    <div class="mono nav-logo">APG</div>
     <div class="nav-links mono mono-label">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -232,6 +244,9 @@
       <span class="italic">Pérez</span><br>
       Grau
     </h1>
+    <p class="hero-sub">
+      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace data into rigorous engineering and actionable insight. Transferring to TU Delft in Sep 2026.
+    </p>
   </section>
 
   <!-- ABOUT & STATS -->
@@ -368,7 +383,6 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-wrapper">
-      <div class="mono contact-header">07 — CONTACT</div>
       <h2 class="contact-title">Let's Connect</h2>
       <p class="contact-desc">
         Interested in aerospace engineering, rocketry, propulsion, or venture development? Find me on GitHub or LinkedIn, or send me an email.
