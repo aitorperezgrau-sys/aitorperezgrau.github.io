@@ -3,468 +3,467 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aitor Pérez Grau — Aerospace Engineer</title>
+<title>Aitor Pérez Grau</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F7F6F3;
-    --text: #111111;
-    --border: rgba(0, 0, 0, 0.15);
-    --blue: #1A6B99;
+    --bg: #faf9f6;
+    --text: #171717;
+    --muted: #666666;
+    --border: rgba(0, 0, 0, 0.08);
+    --blue: #185a88;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  
-  body { 
-    font-family: 'Geist', sans-serif; 
-    background: var(--bg); 
-    color: var(--text); 
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 { 
-    font-family: 'Instrument Serif', serif; 
-    font-weight: 400; 
+  .serif {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
   }
 
-  .mono { 
-    font-family: 'Geist Mono', monospace; 
-    font-size: 0.85rem; 
-  }
-  
-  .mono-label {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    color: var(--muted);
   }
 
-  .blue-text { color: var(--blue); }
-  .github-link { color: var(--blue); text-decoration: none; display: inline-block; margin-top: 0.5rem; }
-  .github-link:hover { text-decoration: underline; }
-
-  /* Layout Wrapper */
-  .wrapper {
-    max-width: 1200px;
+  .container {
+    max-width: 900px;
     margin: 0 auto;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    min-height: 100vh;
+    padding: 0 2rem;
   }
 
-  /* Navigation */
+  header {
+    padding: 2.5rem 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
   nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid var(--border);
+    gap: 1.5rem;
   }
-  .nav-logo {
-    font-weight: 600;
-    letter-spacing: 0.1em;
-  }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a {
-    color: var(--text);
+
+  nav a {
     text-decoration: none;
-    transition: opacity 0.2s;
+    color: var(--muted);
+    font-size: 0.85rem;
   }
-  .nav-links a:hover { opacity: 0.6; }
 
-  /* General Section Formatting */
-  section { padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
-  
-  /* Unified Section Subtitles */
-  .section-prefix {
-    color: #666;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.1em;
+  nav a:hover { color: var(--text); }
+
+  .hero {
+    padding: 6rem 0 4rem;
   }
-  .section-title { 
-    font-size: clamp(3.5rem, 8vw, 5.5rem); 
-    margin-bottom: 3.5rem; 
-    letter-spacing: -0.02em;
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
     line-height: 1.1;
-  }
-
-  /* Hero Section */
-  #hero {
-    min-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 6rem 2rem 4rem 2rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-tag { 
-    margin-bottom: 2rem; 
-    letter-spacing: 0.15em; 
-    font-weight: 600; 
-  }
-  .hero-name {
-    font-size: clamp(3.5rem, 12vw, 7rem); 
-    line-height: 0.9;
-    margin-bottom: 2rem;
     letter-spacing: -0.02em;
-  }
-  .hero-name span.italic {
-    font-style: italic;
-  }
-  .hero-sub {
-    max-width: 600px;
-    font-size: 1.1rem;
-    margin-top: 2rem;
-    color: #444;
+    margin-bottom: 1.5rem;
+    max-width: 760px;
   }
 
-  /* Stats Grid */
-  .stats-wrapper {
-    margin: 4rem -2rem -5rem -2rem; 
-    border-top: 1px solid var(--border);
-  }
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border); 
-  }
-  .stat-cell {
-    background: var(--bg);
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .stat-num { font-size: 2.5rem; line-height: 1; }
-
-  /* Typographic Lists (Experience & Projects) */
-  .list-row {
-    display: grid;
-    grid-template-columns: 3rem 1fr 200px;
-    gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .list-row:first-of-type { border-top: 1px solid var(--border); }
-  .list-row:last-child { border-bottom: none; }
-  
-  .list-index { opacity: 0.4; }
-  .list-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .list-desc { max-width: 700px; margin-bottom: 0.5rem; color: #333; }
-  .list-date { text-align: right; }
-
-  /* Skills Stack */
-  .skill-line {
-    display: flex;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .skill-line:first-of-type { border-top: 1px solid var(--border); }
-  .skill-line:last-child { border-bottom: none; }
-  .skill-cat { width: 250px; flex-shrink: 0; }
-  .skill-items { color: #444; }
-
-  /* Contact Section */
-  #contact {
-    padding: 6rem 2rem 8rem 2rem;
-    border-bottom: none;
-  }
-  .contact-wrapper {
-    max-width: 650px;
-  }
-  .contact-desc {
+  .hero p {
     font-size: 1.15rem;
-    color: #444;
-    margin-bottom: 2rem;
+    color: var(--muted);
+    max-width: 640px;
     line-height: 1.6;
   }
-  
-  /* Contact Buttons */
-  .btn-contact {
+
+  section {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-val {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .entry:first-of-type { border-top: 1px solid var(--border); }
+
+  .entry-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .entry-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-desc {
+    color: #333;
+    font-size: 0.95rem;
+  }
+
+  .entry-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .entry-link:hover { text-decoration: underline; }
+
+  .skills-block {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills-block:first-of-type { border-top: 1px solid var(--border); }
+
+  .skills-cat {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .skills-body {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .contact-left p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 440px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .contact-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .contact-links a:hover { color: var(--blue); }
+
+  footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 1.5rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  .btn-email {
-    background: #0f0f0f;
-    color: #fff;
-    width: 100%;
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
-  .btn-email:hover { background: #222; }
-  
-  .social-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .btn-social {
-    border: 1px solid var(--border);
-    color: #444;
-    background: transparent;
-  }
-  .btn-social:hover { 
-    background: rgba(0,0,0,0.03); 
-    color: var(--text);
   }
 
-  footer { padding: 2rem; text-align: center; color: #666; border-top: 1px solid var(--border); }
-
-  /* Mobile Adjustments */
-  @media (max-width: 900px) {
-    .list-row { grid-template-columns: 2rem 1fr; }
-    .list-date { grid-column: 1 / -1; text-align: left; margin-top: 1rem; }
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .skill-line { flex-direction: column; gap: 0.5rem; }
-    .nav-links { display: none; }
-    .social-grid { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+    .entry { grid-template-columns: 1fr; gap: 0.35rem; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .skills-block { grid-template-columns: 1fr; gap: 0.35rem; }
+    .contact-box { flex-direction: column; }
+    nav { display: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrapper">
-  
-  <nav>
-    <div class="mono nav-logo">APG</div>
-    <div class="nav-links mono mono-label">
+<div class="container">
+
+  <header>
+    <div class="brand">Aitor Pérez Grau</div>
+    <nav>
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
+      <a href="#experience">Background</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="mono mono-label hero-tag blue-text">Aerospace Engineering Student</div>
-    <h1 class="hero-name">
-      Aitor<br>
-      <span class="italic">Pérez</span><br>
-      Grau
-    </h1>
-    <p class="hero-sub">
-      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace dynamics into verified flight software and open-source simulation architectures. Transferring to TU Delft in Sep 2026.
+  <div class="hero">
+    <div class="mono" style="margin-bottom: 1rem;">Aerospace Engineering — TU Delft</div>
+    <h1 class="serif">Flight dynamics, sensor simulation, and rocketry software.</h1>
+    <p>
+      BSc student at TU Delft. I write numerical simulations in Python, model sensors for trajectory tools, and test avionics code against hardware.
     </p>
-  </section>
+  </div>
 
-  <!-- ABOUT & STATS -->
   <section id="about">
-    <div class="mono mono-label section-prefix">01 — Profile</div>
-    <h2 class="section-title">About</h2>
-    <div style="max-width: 800px; font-size: 1.1rem;">
-      <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus sits at the intersection of GNC software, trajectory dynamics, sensor modeling, and Hardware-in-the-Loop avionics verification.</p>
-      <p>As the only freshman admitted to the Aerodynamics department at Faraday Rocketry UPV, I contributed to the record campaign that achieved 10,843 m altitude. I develop production-grade numerical simulations, contribute to open-source aerospace tools, and engineer verification testbeds for flight-critical systems.</p>
+    <div class="section-header">
+      <h2 class="serif">About</h2>
+      <span class="mono">01</span>
     </div>
     
-    <div class="stats-wrapper">
-      <div class="stat-grid">
-        <div class="stat-cell">
-          <div class="stat-num">9.1</div>
-          <div class="mono mono-label">UPV GPA (/10)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">5%</div>
-          <div class="mono mono-label">Cohort Percentile</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">10,843m</div>
-          <div class="mono mono-label">Altitude Record</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">0.8%</div>
-          <div class="mono mono-label">Exam Percentile</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="mono mono-label section-prefix">02 — Background</div>
-    <h2 class="section-title">Experience & Education</h2>
-    
-    <div class="list-row">
-      <div class="mono list-index">01</div>
-      <div>
-        <h3 class="list-title">Open Source Developer</h3>
-        <div class="mono" style="margin-bottom: 1rem;">RocketPy</div>
-        <p class="list-desc">Engineered the modular 3-axis Magnetometer simulation module for RocketPy. Implemented World Magnetic Model (WMM) frame projections, structural soft-iron distortion matrices, and high-current wire interference modeling via the Biot–Savart law with automated pytest suites and Sphinx documentation.</p>
-      </div>
-      <div class="mono list-date blue-text">Jul 2026 — Present</div>
-    </div>
-
-    <div class="list-row">
-      <div class="mono list-index">02</div>
-      <div>
-        <h3 class="list-title">Flight Dynamics & Avionics Engineer</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Faraday Rocketry UPV</div>
-        <p class="list-desc">Contributed to the 10,843 m national altitude record campaign. Developed finite-state machines for transonic dynamic pressure compensation and integrated synthetic sensor fault injection into Hardware-in-the-Loop testbeds for the ORIGIN avionics stack.</p>
-      </div>
-      <div class="mono list-date blue-text">Oct 2025 — Present</div>
-    </div>
-
-    <div class="list-row">
-      <div class="mono list-index">03</div>
-      <div>
-        <h3 class="list-title">BSc Aerospace Engineering</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Delft University of Technology (TU Delft)</div>
-        <p class="list-desc">Admitted through competitive selection. Transferring to TU Delft to focus on advanced spacecraft dynamics, AOCS/GNC systems, and experimental rocketry.</p>
-      </div>
-      <div class="mono list-date blue-text">Sep 2026 — 2029</div>
-    </div>
-
-    <div class="list-row">
-      <div class="mono list-index">04</div>
-      <div>
-        <h3 class="list-title">BSc Aerospace Engineering (English Track)</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Universitat Politècnica de València</div>
-        <p class="list-desc">Achieved a 9.1/10 GPA (Top 5%). Coursework in Calculus, Linear Algebra, Physics, Materials Science, and Programming.</p>
-      </div>
-      <div class="mono list-date blue-text">Sep 2025 — Jun 2026</div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="mono mono-label section-prefix">03 — Portfolio</div>
-    <h2 class="section-title">Projects</h2>
-
-    <!-- Project 1: RocketPy Magnetometer -->
-    <div class="list-row">
-      <div class="mono list-index">01</div>
-      <div>
-        <h3 class="list-title">RocketPy Tri-Axis Magnetometer Simulation Module</h3>
-        <p class="list-desc">Developed an upstream open-source sensor simulation module for RocketPy. Implements World Magnetic Model transformations to inertial, body, and sensor frames, modeling hard/soft-iron distortions and Biot–Savart electromagnetic interference from vehicle wiring. Includes unit test suites and complete Sphinx documentation.</p>
-        <a href="https://github.com/aitorperezgrau-sys/RocketPy" target="_blank" class="mono github-link">GitHub Repository ↗</a>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-
-    <!-- Project 2: 3-DOF Simulator Package -->
-    <div class="list-row">
-      <div class="mono list-index">02</div>
-      <div>
-        <h3 class="list-title">Open-Source 3-DOF Sounding Rocket Simulator</h3>
-        <p class="list-desc">Engineered a pip-installable Python package implementing variable-mass flight equations of motion, atmospheric modeling, numerical RK4 integration, and thrust curve interpolation. Packaged with automated pytest suites, CI/CD workflows, and modular object-oriented architecture.</p>
-        <a href="https://github.com/aitorperezgrau-sys/simulator_3dof" target="_blank" class="mono github-link">GitHub Repository ↗</a>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-
-    <!-- Project 3: ORIGIN Transonic FSM & HIL Testbed -->
-    <div class="list-row">
-      <div class="mono list-index">03</div>
-      <div>
-        <h3 class="list-title">ORIGIN Transonic Avionics Validation & HIL Testbed</h3>
-        <p class="list-desc">Engineered finite-state machine (FSM) compensation logic to prevent premature recovery deployment from transonic barometric pressure fluctuations. Built synthetic sensor fault injection modules within Hardware-in-the-Loop testbeds to verify flight computer robustness under off-nominal states.</p>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-
-    <!-- Project 4: Skybreaker 6-DOF Flight Analysis -->
-    <div class="list-row">
-      <div class="mono list-index">04</div>
-      <div>
-        <h3 class="list-title">Skybreaker 6-DOF Flight Dynamic Analysis</h3>
-        <p class="list-desc">Validated vehicle performance envelopes and calculated optimal launch rail heading (145°) to maximize apogee using Python and RocketPy 6-DOF simulation models. Compiled into a formal 14-page technical analysis report for EuRoC competition review.</p>
-        <a href="https://github.com/aitorperezgrau-sys/Skybreaker_technical_analysis_RocketPy" target="_blank" class="mono github-link">GitHub Repository ↗</a>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-
-    <!-- Project 5: MATLAB Orbital Trade Studies -->
-    <div class="list-row">
-      <div class="mono list-index">05</div>
-      <div>
-        <h3 class="list-title">In-Space Propulsion Feasibility & Orbital Transfers</h3>
-        <p class="list-desc">Built a numerical MATLAB simulation framework for bidirectional LEO-GEO Hohmann transfers. Generated log-scale mass-fraction comparative plots and delta-V budget trade studies proving structural limitations of conventional chemical propulsion systems.</p>
-        <a href="https://github.com/aitorperezgrau-sys/LEO-GEO-Hoffman-transfer-in-MATLAB" target="_blank" class="mono github-link">GitHub Repository ↗</a>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-
-    <!-- Project 6: Aviation Safety Cost Analysis -->
-    <div class="list-row">
-      <div class="mono list-index">06</div>
-      <div>
-        <h3 class="list-title">Aviation Safety & Fleet Cost Analysis</h3>
-        <p class="list-desc">Developed a parameterized financial model linking EASA and ICAO operational safety metrics to aircraft valuation and fleet maintenance variables to determine standardized hourly hull-loss risk costs across six commercial aircraft types.</p>
-      </div>
-      <div class="mono list-date blue-text">2026</div>
-    </div>
-    
-    <!-- Project 7: IDEAS UPV Solo Venture Pitch -->
-    <div class="list-row">
-      <div class="mono list-index">07</div>
-      <div>
-        <h3 class="list-title">IDEAS UPV Solo Venture Pitch Competition</h3>
-        <p class="list-desc">Won 3rd prize at the IDEAS UPV Week[Emprende] bootcamp by structuring and pitching a technology startup concept solo, applying Lean Startup methodologies, financial unit economics, and business validation models to an executive jury.</p>
-      </div>
-      <div class="mono list-date blue-text">2025</div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="mono mono-label section-prefix">04 — Capabilities</div>
-    <h2 class="section-title">Technical Skills</h2>
-    <div>
-      <div class="skill-line">
-        <div class="mono mono-label skill-cat">GNC & Dynamics</div>
-        <div class="skill-items">Flight Dynamics, 3-DOF / 6-DOF Trajectory Simulation, Orbital Mechanics (Delta-V budgets, Hohmann transfers), Coordinate Frame Transformations, Sensor Modeling (Magnetometers, Barometers)</div>
-      </div>
-      <div class="skill-line">
-        <div class="mono mono-label skill-cat">Software & Testing</div>
-        <div class="skill-items">Python (NumPy, SciPy, Matplotlib), pytest, Git / GitHub CI/CD, MATLAB, Sphinx Documentation, Object-Oriented Programming (OOP)</div>
-      </div>
-      <div class="skill-line">
-        <div class="mono mono-label skill-cat">Avionics & V&V</div>
-        <div class="skill-items">Hardware-in-the-Loop (HIL) Testing, Software-in-the-Loop (SIL), Finite-State Machines (FSM), Fault Injection Testing, Telemetry Analysis</div>
-      </div>
-      <div class="skill-line">
-        <div class="mono mono-label skill-cat">Languages</div>
-        <div class="skill-items">Spanish (Native), Catalan (Native), English (C1 Proficiency / TOEFL 97), Italian (Basic)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrapper">
-      <div class="mono mono-label section-prefix">05 — Contact</div>
-      <h2 class="section-title" style="margin-bottom: 2.5rem;">Let's Connect</h2>
-      <p class="contact-desc">
-        Interested in GNC software, rocketry simulation, trajectory optimization, or aerospace systems? Connect with me on GitHub or LinkedIn, or reach out directly by email.
+    <div style="max-width: 700px; font-size: 1rem; color: #222;">
+      <p style="margin-bottom: 1rem;">
+        I study Aerospace Engineering at TU Delft, focusing on GNC, trajectory simulation, and software testing.
       </p>
-      
-      <a href="mailto:aitor.perez.grau@gmail.com" class="btn-contact btn-email mono">
-        <span>aitor.perez.grau@gmail.com</span>
-        <span>→</span>
-      </a>
-      
-      <div class="social-grid">
-        <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank" class="btn-contact btn-social mono">
-          <span>LinkedIn ↗</span>
-        </a>
-        <a href="https://github.com/aitorperezgrau-sys" target="_blank" class="btn-contact btn-social mono">
-          <span>GitHub ↗</span>
-        </a>
+      <p>
+        I previously completed my first year at Universitat Politècnica de València (top 5%, 9.1/10 GPA). While there, I worked on flight dynamics and avionics testing for Faraday Rocketry UPV, helping fly a sounding rocket to 10,843 meters.
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div>
+        <div class="stat-val serif">10,843m</div>
+        <div class="stat-label mono">Flight Record</div>
+      </div>
+      <div>
+        <div class="stat-val serif">9.1 / 10</div>
+        <div class="stat-label mono">Year 1 GPA</div>
+      </div>
+      <div>
+        <div class="stat-val serif">Top 0.8%</div>
+        <div class="stat-label mono">Entrance Exam</div>
+      </div>
+      <div>
+        <div class="stat-val serif">Python</div>
+        <div class="stat-label mono">Primary Stack</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header">
+      <h2 class="serif">Experience</h2>
+      <span class="mono">02</span>
+    </div>
+
+    <div class="entry">
+      <div class="mono">2026 — Present</div>
+      <div>
+        <div class="entry-title">BSc Aerospace Engineering</div>
+        <div class="entry-sub">TU Delft</div>
+        <p class="entry-desc">
+          Focusing on flight dynamics, orbital mechanics, control systems, and rocketry.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">2026 — Present</div>
+      <div>
+        <div class="entry-title">Open Source Contributor</div>
+        <div class="entry-sub">RocketPy</div>
+        <p class="entry-desc">
+          Wrote the 3-axis magnetometer module. Added WMM coordinates, soft-iron distortion, and wiring interference using Biot-Savart, complete with unit tests and Sphinx docs.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">2025 — 2026</div>
+      <div>
+        <div class="entry-title">Avionics & Flight Dynamics Engineer</div>
+        <div class="entry-sub">Faraday Rocketry UPV</div>
+        <p class="entry-desc">
+          Built state machines to filter transonic pressure spikes and set up sensor fault tests on our Hardware-in-the-Loop testbed for the 10,843 m launch campaign.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">2025 — 2026</div>
+      <div>
+        <div class="entry-title">BSc Aerospace Engineering (Year 1)</div>
+        <div class="entry-sub">Universitat Politècnica de València</div>
+        <p class="entry-desc">
+          Completed year one in the English track with a 9.1/10 GPA (top 5% of class).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="serif">Projects</h2>
+      <span class="mono">03</span>
+    </div>
+
+    <div class="entry">
+      <div class="mono">RocketPy</div>
+      <div>
+        <div class="entry-title">Magnetometer Simulation Module</div>
+        <div class="entry-sub">Python, WMM, Linear Algebra</div>
+        <p class="entry-desc">
+          Projects Earth's magnetic field into body and sensor frames. Models structural iron distortion and current noise from nearby battery cables.
+        </p>
+        <a href="https://github.com/aitorperezgrau-sys/RocketPy" target="_blank" class="entry-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">Simulation</div>
+      <div>
+        <div class="entry-title">3-DOF Rocket Trajectory Simulator</div>
+        <div class="entry-sub">Python, PyPI, pytest, RK4</div>
+        <p class="entry-desc">
+          A lightweight pip package for rocket trajectories. Computes variable-mass motion, standard atmosphere, and motor thrust curves using RK4 integration.
+        </p>
+        <a href="https://github.com/aitorperezgrau-sys/simulator_3dof" target="_blank" class="entry-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">Avionics</div>
+      <div>
+        <div class="entry-title">Transonic Barometer Filtering & HIL Testing</div>
+        <div class="entry-sub">State Machines, Fault Injection, Python</div>
+        <p class="entry-desc">
+          Built state machine logic to prevent false parachute deployment around Mach 1. Verified flight code using synthetic sensor dropouts on a HIL rig.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">Analysis</div>
+      <div>
+        <div class="entry-title">Skybreaker 6-DOF Trajectory Study</div>
+        <div class="entry-sub">RocketPy, Flight Envelopes</div>
+        <p class="entry-desc">
+          Simulated launch rail angles and wind dispersions to find the optimal 145° launch heading for maximum apogee at EuRoC.
+        </p>
+        <a href="https://github.com/aitorperezgrau-sys/Skybreaker_technical_analysis_RocketPy" target="_blank" class="entry-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">Orbital</div>
+      <div>
+        <div class="entry-title">LEO-GEO Transfer Trade Study</div>
+        <div class="entry-sub">MATLAB, Delta-V Budgets</div>
+        <p class="entry-desc">
+          Calculated propellant mass fractions and delta-V costs for bidirectional Hohmann transfers comparing chemical and electric propulsion.
+        </p>
+        <a href="https://github.com/aitorperezgrau-sys/LEO-GEO-Hoffman-transfer-in-MATLAB" target="_blank" class="entry-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="mono">Economics</div>
+      <div>
+        <div class="entry-title">Aviation Safety & Hull-Loss Modeling</div>
+        <div class="entry-sub">Excel, ICAO / EASA Data</div>
+        <p class="entry-desc">
+          Estimated hourly risk costs across six commercial aircraft types using historical accident rates and fleet replacement values.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="serif">Skills</h2>
+      <span class="mono">04</span>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-cat">Dynamics & Control</div>
+      <div class="skills-body">Flight dynamics, 3-DOF & 6-DOF simulation, orbital transfers, coordinate frames, sensor modeling.</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-cat">Software</div>
+      <div class="skills-body">Python (NumPy, SciPy, Matplotlib), pytest, Git, CI/CD, MATLAB, Sphinx documentation.</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-cat">Avionics & Testing</div>
+      <div class="skills-body">Hardware-in-the-Loop (HIL), Software-in-the-Loop (SIL), finite-state machines, sensor fault testing.</div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-cat">Languages</div>
+      <div class="skills-body">English (C1 / TOEFL 97), Spanish (Native), Catalan (Native), Italian (Basic).</div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom: none;">
+    <div class="section-header">
+      <h2 class="serif">Contact</h2>
+      <span class="mono">05</span>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-left">
+        <p>
+          Feel free to reach out about GNC, simulation tools, or rocketry projects.
+        </p>
+      </div>
+      <div class="contact-links mono">
+        <a href="mailto:aitor.perez.grau@gmail.com">aitor.perez.grau@gmail.com ↗</a>
+        <a href="https://github.com/aitorperezgrau-sys" target="_blank">github.com/aitorperezgrau-sys ↗</a>
+        <a href="https://www.linkedin.com/in/aitor-perez-grau/" target="_blank">linkedin.com/in/aitor-perez-grau ↗</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="mono">© 2026 Aitor Pérez Grau. Valencia → Delft.</div>
+    <div class="mono">Aitor Pérez Grau — Delft, Netherlands</div>
+    <div class="mono">2026</div>
   </footer>
 
 </div>
