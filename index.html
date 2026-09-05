@@ -42,7 +42,7 @@
   }
 
   .blue-text { color: var(--blue); }
-  .github-link { color: var(--blue); text-decoration: none; }
+  .github-link { color: var(--blue); text-decoration: none; display: inline-block; margin-top: 0.5rem; }
   .github-link:hover { text-decoration: underline; }
 
   /* Layout Wrapper */
@@ -154,7 +154,7 @@
   
   .list-index { opacity: 0.4; }
   .list-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .list-desc { max-width: 700px; margin-bottom: 1rem; color: #333; }
+  .list-desc { max-width: 700px; margin-bottom: 0.5rem; color: #333; }
   .list-date { text-align: right; }
 
   /* Skills Stack */
@@ -239,6 +239,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -252,7 +253,7 @@
       Grau
     </h1>
     <p class="hero-sub">
-      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace data into rigorous engineering and actionable insight. Transferring to TU Delft in Sep 2026.
+      From orbital mechanics to 6-DOF rocket simulation — translating complex aerospace dynamics into verified flight software and open-source simulation architectures. Transferring to TU Delft in Sep 2026.
     </p>
   </section>
 
@@ -261,8 +262,8 @@
     <div class="mono mono-label section-prefix">01 — Profile</div>
     <h2 class="section-title">About</h2>
     <div style="max-width: 800px; font-size: 1.1rem;">
-      <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus lies at the intersection of flight dynamics, propulsion trade-off analysis, and hardware-in-the-loop avionics testing.</p>
-      <p>As the only freshman admitted to the Aerodynamics department at Faraday Rocketry UPV, I contributed to the 2026 campaign that broke the Spanish student rocketry altitude record. I am driven by the challenge of scaling the commercial future of in-space propulsion and orbital infrastructure.</p>
+      <p style="margin-bottom: 1.5rem;">I am an Aerospace Engineering student currently studying at UPV (top 5% of the cohort), transferring to TU Delft in September 2026. My technical focus sits at the intersection of GNC software, trajectory dynamics, sensor modeling, and Hardware-in-the-Loop avionics verification.</p>
+      <p>As the only freshman admitted to the Aerodynamics department at Faraday Rocketry UPV, I contributed to the record campaign that achieved 10,843 m altitude. I develop production-grade numerical simulations, contribute to open-source aerospace tools, and engineer verification testbeds for flight-critical systems.</p>
     </div>
     
     <div class="stats-wrapper">
@@ -295,41 +296,41 @@
     <div class="list-row">
       <div class="mono list-index">01</div>
       <div>
-        <h3 class="list-title">Flight Dynamics & Avionics Engineer</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Faraday Rocketry UPV</div>
-        <p class="list-desc">Contributed to breaking the Spanish student rocketry altitude record (10,843 m). Developed Python testing tools for the ORIGIN flight computer and produced comprehensive 6-DOF flight analysis for the EuRoC-winning Skybreaker rocket.</p>
+        <h3 class="list-title">Open Source Developer</h3>
+        <div class="mono" style="margin-bottom: 1rem;">RocketPy</div>
+        <p class="list-desc">Engineered the modular 3-axis Magnetometer simulation module for RocketPy. Implemented World Magnetic Model (WMM) frame projections, structural soft-iron distortion matrices, and high-current wire interference modeling via the Biot–Savart law with automated pytest suites and Sphinx documentation.</p>
       </div>
-      <div class="mono list-date blue-text">Oct 2025 — Present</div>
+      <div class="mono list-date blue-text">Jul 2026 — Present</div>
     </div>
 
     <div class="list-row">
       <div class="mono list-index">02</div>
       <div>
-        <h3 class="list-title">BSc Aerospace Engineering</h3>
-        <div class="mono" style="margin-bottom: 1rem;">TU Delft</div>
-        <p class="list-desc">Admitted through competitive selection. Transitioning studies to the Netherlands to focus on advanced aerospace engineering curricula.</p>
+        <h3 class="list-title">Flight Dynamics & Avionics Engineer</h3>
+        <div class="mono" style="margin-bottom: 1rem;">Faraday Rocketry UPV</div>
+        <p class="list-desc">Contributed to the 10,843 m national altitude record campaign. Developed finite-state machines for transonic dynamic pressure compensation and integrated synthetic sensor fault injection into Hardware-in-the-Loop testbeds for the ORIGIN avionics stack.</p>
       </div>
-      <div class="mono list-date blue-text">Sep 2026 — 2029</div>
+      <div class="mono list-date blue-text">Oct 2025 — Present</div>
     </div>
 
     <div class="list-row">
       <div class="mono list-index">03</div>
       <div>
-        <h3 class="list-title">BSc Aerospace Engineering (English Track)</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Universitat Politècnica de València</div>
-        <p class="list-desc">Achieved a 9.1/10 GPA (Top 5%). Key grades include Chemistry (9.7), Physics (9.2), Materials Science (9.3), and Business Management (9.0).</p>
+        <h3 class="list-title">BSc Aerospace Engineering</h3>
+        <div class="mono" style="margin-bottom: 1rem;">Delft University of Technology (TU Delft)</div>
+        <p class="list-desc">Admitted through competitive selection. Transferring to TU Delft to focus on advanced spacecraft dynamics, AOCS/GNC systems, and experimental rocketry.</p>
       </div>
-      <div class="mono list-date blue-text">Sep 2025 — Jun 2026</div>
+      <div class="mono list-date blue-text">Sep 2026 — 2029</div>
     </div>
-    
+
     <div class="list-row">
       <div class="mono list-index">04</div>
       <div>
-        <h3 class="list-title">UPV Academic Excellence Award</h3>
-        <div class="mono" style="margin-bottom: 1rem;">Valencia University Entrance Exams</div>
-        <p class="list-desc">Ranked in the top 0.8% (inside the top 200 of 24,000 candidates) across the Valencia region.</p>
+        <h3 class="list-title">BSc Aerospace Engineering (English Track)</h3>
+        <div class="mono" style="margin-bottom: 1rem;">Universitat Politècnica de València</div>
+        <p class="list-desc">Achieved a 9.1/10 GPA (Top 5%). Coursework in Calculus, Linear Algebra, Physics, Materials Science, and Programming.</p>
       </div>
-      <div class="mono list-date blue-text">2025</div>
+      <div class="mono list-date blue-text">Sep 2025 — Jun 2026</div>
     </div>
   </section>
 
@@ -338,40 +339,76 @@
     <div class="mono mono-label section-prefix">03 — Portfolio</div>
     <h2 class="section-title">Projects</h2>
 
+    <!-- Project 1: RocketPy Magnetometer -->
     <div class="list-row">
       <div class="mono list-index">01</div>
       <div>
-        <h3 class="list-title">Skybreaker 6-DOF Flight Analysis</h3>
-        <p class="list-desc">Validated the vehicle's performance envelope and determined the optimal launch heading (145°) to maximize apogee using Python and RocketPy. Compiled in a 14-page technical report.</p>
+        <h3 class="list-title">RocketPy Tri-Axis Magnetometer Simulation Module</h3>
+        <p class="list-desc">Developed an upstream open-source sensor simulation module for RocketPy. Implements World Magnetic Model transformations to inertial, body, and sensor frames, modeling hard/soft-iron distortions and Biot–Savart electromagnetic interference from vehicle wiring. Includes unit test suites and complete Sphinx documentation.</p>
+        <a href="https://github.com/aitorperezgrau-sys/RocketPy" target="_blank" class="mono github-link">GitHub Repository ↗</a>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+
+    <!-- Project 2: 3-DOF Simulator Package -->
+    <div class="list-row">
+      <div class="mono list-index">02</div>
+      <div>
+        <h3 class="list-title">Open-Source 3-DOF Sounding Rocket Simulator</h3>
+        <p class="list-desc">Engineered a pip-installable Python package implementing variable-mass flight equations of motion, atmospheric modeling, numerical RK4 integration, and thrust curve interpolation. Packaged with automated pytest suites, CI/CD workflows, and modular object-oriented architecture.</p>
+        <a href="https://github.com/aitorperezgrau-sys/simulator_3dof" target="_blank" class="mono github-link">GitHub Repository ↗</a>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+
+    <!-- Project 3: ORIGIN Transonic FSM & HIL Testbed -->
+    <div class="list-row">
+      <div class="mono list-index">03</div>
+      <div>
+        <h3 class="list-title">ORIGIN Transonic Avionics Validation & HIL Testbed</h3>
+        <p class="list-desc">Engineered finite-state machine (FSM) compensation logic to prevent premature recovery deployment from transonic barometric pressure fluctuations. Built synthetic sensor fault injection modules within Hardware-in-the-Loop testbeds to verify flight computer robustness under off-nominal states.</p>
+      </div>
+      <div class="mono list-date blue-text">2026</div>
+    </div>
+
+    <!-- Project 4: Skybreaker 6-DOF Flight Analysis -->
+    <div class="list-row">
+      <div class="mono list-index">04</div>
+      <div>
+        <h3 class="list-title">Skybreaker 6-DOF Flight Dynamic Analysis</h3>
+        <p class="list-desc">Validated vehicle performance envelopes and calculated optimal launch rail heading (145°) to maximize apogee using Python and RocketPy 6-DOF simulation models. Compiled into a formal 14-page technical analysis report for EuRoC competition review.</p>
         <a href="https://github.com/aitorperezgrau-sys/Skybreaker_technical_analysis_RocketPy" target="_blank" class="mono github-link">GitHub Repository ↗</a>
       </div>
       <div class="mono list-date blue-text">2026</div>
     </div>
 
+    <!-- Project 5: MATLAB Orbital Trade Studies -->
     <div class="list-row">
-      <div class="mono list-index">02</div>
+      <div class="mono list-index">05</div>
       <div>
-        <h3 class="list-title">In-Space Propulsion Feasibility Analysis</h3>
-        <p class="list-desc">Built a MATLAB model for a bidirectional LEO-GEO Hohmann transfer. Generated log-scale comparative plots to mathematically prove current single-stage technologies fail mass constraints, highlighting the need for green propulsion.</p>
+        <h3 class="list-title">In-Space Propulsion Feasibility & Orbital Transfers</h3>
+        <p class="list-desc">Built a numerical MATLAB simulation framework for bidirectional LEO-GEO Hohmann transfers. Generated log-scale mass-fraction comparative plots and delta-V budget trade studies proving structural limitations of conventional chemical propulsion systems.</p>
         <a href="https://github.com/aitorperezgrau-sys/LEO-GEO-Hoffman-transfer-in-MATLAB" target="_blank" class="mono github-link">GitHub Repository ↗</a>
       </div>
       <div class="mono list-date blue-text">2026</div>
     </div>
 
+    <!-- Project 6: Aviation Safety Cost Analysis -->
     <div class="list-row">
-      <div class="mono list-index">03</div>
+      <div class="mono list-index">06</div>
       <div>
-        <h3 class="list-title">Aviation Safety Cost Analysis</h3>
-        <p class="list-desc">Developed a parameterized Excel financial model linking EASA/ICAO operational metrics to financial variables to compute standardized hourly costs of aircraft loss across six commercial aircraft types.</p>
+        <h3 class="list-title">Aviation Safety & Fleet Cost Analysis</h3>
+        <p class="list-desc">Developed a parameterized financial model linking EASA and ICAO operational safety metrics to aircraft valuation and fleet maintenance variables to determine standardized hourly hull-loss risk costs across six commercial aircraft types.</p>
       </div>
       <div class="mono list-date blue-text">2026</div>
     </div>
     
+    <!-- Project 7: IDEAS UPV Solo Venture Pitch -->
     <div class="list-row">
-      <div class="mono list-index">04</div>
+      <div class="mono list-index">07</div>
       <div>
-        <h3 class="list-title">Entrepreneurship Bootcamp Pitch</h3>
-        <p class="list-desc">Secured a podium finish at IDEAS UPV by independently structuring and delivering a solo investor pitch based on Lean Startup principles and business validation models.</p>
+        <h3 class="list-title">IDEAS UPV Solo Venture Pitch Competition</h3>
+        <p class="list-desc">Won 3rd prize at the IDEAS UPV Week[Emprende] bootcamp by structuring and pitching a technology startup concept solo, applying Lean Startup methodologies, financial unit economics, and business validation models to an executive jury.</p>
       </div>
       <div class="mono list-date blue-text">2025</div>
     </div>
@@ -383,20 +420,20 @@
     <h2 class="section-title">Technical Skills</h2>
     <div>
       <div class="skill-line">
-        <div class="mono mono-label skill-cat">Data & Modelling</div>
-        <div class="skill-items">Python, MATLAB, NumPy, Matplotlib, Microsoft Excel, Data Visualization</div>
+        <div class="mono mono-label skill-cat">GNC & Dynamics</div>
+        <div class="skill-items">Flight Dynamics, 3-DOF / 6-DOF Trajectory Simulation, Orbital Mechanics (Delta-V budgets, Hohmann transfers), Coordinate Frame Transformations, Sensor Modeling (Magnetometers, Barometers)</div>
       </div>
       <div class="skill-line">
-        <div class="mono mono-label skill-cat">Aerospace</div>
-        <div class="skill-items">RocketPy (6-DOF), OpenRocket, Flight Dynamics, Orbital Mechanics, Propulsion Analysis</div>
+        <div class="mono mono-label skill-cat">Software & Testing</div>
+        <div class="skill-items">Python (NumPy, SciPy, Matplotlib), pytest, Git / GitHub CI/CD, MATLAB, Sphinx Documentation, Object-Oriented Programming (OOP)</div>
       </div>
       <div class="skill-line">
-        <div class="mono mono-label skill-cat">Software & Tools</div>
-        <div class="skill-items">Object-Oriented Programming, GitHub, Hardware-in-the-Loop, Technical Reporting</div>
+        <div class="mono mono-label skill-cat">Avionics & V&V</div>
+        <div class="skill-items">Hardware-in-the-Loop (HIL) Testing, Software-in-the-Loop (SIL), Finite-State Machines (FSM), Fault Injection Testing, Telemetry Analysis</div>
       </div>
       <div class="skill-line">
         <div class="mono mono-label skill-cat">Languages</div>
-        <div class="skill-items">Spanish (Native), Catalan (Native), English (C1 / TOEFL 97), Italian (Basic)</div>
+        <div class="skill-items">Spanish (Native), Catalan (Native), English (C1 Proficiency / TOEFL 97), Italian (Basic)</div>
       </div>
     </div>
   </section>
@@ -407,7 +444,7 @@
       <div class="mono mono-label section-prefix">05 — Contact</div>
       <h2 class="section-title" style="margin-bottom: 2.5rem;">Let's Connect</h2>
       <p class="contact-desc">
-        Interested in aerospace engineering, rocketry, propulsion, or venture development? Find me on GitHub or LinkedIn, or send me an email.
+        Interested in GNC software, rocketry simulation, trajectory optimization, or aerospace systems? Connect with me on GitHub or LinkedIn, or reach out directly by email.
       </p>
       
       <a href="mailto:aitor.perez.grau@gmail.com" class="btn-contact btn-email mono">
